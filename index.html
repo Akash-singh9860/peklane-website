@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peklane - Your Trusted Global Partner in Premium Import & Export Solutions">
+    <title>Peklane - Global Import & Export Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a3a52;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* FIXED: Using your public Postimages direct link */
+            background: linear-gradient(rgba(26, 58, 82, 0.6), rgba(44, 95, 126, 0.6)), 
+                        url('https://i.postimg.cc/52CrFw7r/Gemini-Generated-Image-6pfo366pfo366pfo.png') center/cover no-repeat;
+            
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            display: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: #1a3a52;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f39c12;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .mission {
+            background: #1a3a52;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-style: italic;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #f39c12;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #1a3a52;
+            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8f9fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            color: #1a3a52;
+            margin-bottom: 10px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+        }
+
+        .product-content p {
+            color: #666;
+            font-size: clamp(0.9rem, 1.5vw, 0.95rem);
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: white;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .reason-item {
+            display: flex;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .reason-icon {
+            font-size: 2.5rem;
+            color: #f39c12;
+            flex-shrink: 0;
+        }
+
+        .reason-content h3 {
+            color: #1a3a52;
+            margin-bottom: 10px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+        }
+
+        .reason-content p {
+            color: #666;
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a3a52;
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #f39c12;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+
+        .footer-section p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero {
+                padding: 80px 20px;
+                min-height: 400px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .services-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .reason-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 1.5rem;
+            }
+
+            .service-card,
+            .product-content {
+                padding: 30px 20px;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .product-image {
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">PEKLANE</div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul id="navMenu">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#products" onclick="closeMenu()">Products</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome To Peklane</h1>
+            <p>Your Trusted Global Partner in Premium Import & Export Solutions</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Peklane</h2>
+            <div class="about-content">
+                <p>Peklane is a leading import and export company committed to delivering excellence in global trade. With years of industry expertise and an unwavering dedication to quality, we have established ourselves as a trusted partner for businesses worldwide. Our extensive network spans multiple continents, enabling us to source and supply premium products that meet the highest international standards.</p>
+                
+                <p>We pride ourselves on building lasting relationships with our clients through transparency, reliability, and exceptional service. From initial consultation to final delivery, our experienced team ensures every transaction is handled with professionalism and precision. At Peklane, we don't just move products across borders—we create opportunities for businesses to thrive in the global marketplace.</p>
+                
+                <div class="mission">
+                    <strong>Our Mission:</strong> To bridge global markets by providing world-class import and export services that exceed expectations, deliver value, and foster sustainable business growth for our partners worldwide.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3>Export Services</h3>
+                    <p>We export premium quality products to international markets across the globe. Our comprehensive export solutions ensure your products reach worldwide destinations safely, efficiently, and in full compliance with international trade regulations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Import Agent</h3>
+                    <p>As your dedicated import agent, we help foreign companies successfully introduce and establish their products in local markets. We handle all logistics, customs clearance, and distribution channels to ensure seamless market entry.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Sourcing Agent</h3>
+                    <p>We act as your local eyes and ears, providing comprehensive sourcing solutions for international clients. From supplier identification to quality control and negotiation, we ensure you get the best products at competitive prices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Product Categories</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🌾</div>
+                    <div class="product-content">
+                        <h3>Premium Spices</h3>
+                        <p>Authentic, hand-selected spices sourced directly from certified farms. Our aromatic collection includes premium quality turmeric, cumin, cardamom, and exotic blends that meet international food safety standards.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <div class="product-content">
+                        <h3>Organic Products</h3>
+                        <p>Certified organic agricultural products and natural goods. Our sustainable sourcing practices ensure eco-friendly products that support both health-conscious consumers and environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <h2>Why Choose Peklane</h2>
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <div class="reason-icon">🤝</div>
+                    <div class="reason-content">
+                        <h3>We Build Relations</h3>
+                        <p>At Peklane, we believe in creating long-term partnerships, not just transactions. We invest time in understanding your business needs and work collaboratively to achieve mutual growth and success in the global marketplace.</p>
+                    </div>
+                </div>
+                
+                <div class="reason-item">
+                    <div class="reason-icon">🎓</div>
+                    <div class="reason-content">
+                        <h3>Experience & Professional</h3>
+                        <p>With extensive industry experience and a team of seasoned professionals, we bring unparalleled expertise to every project. Our deep understanding of international trade regulations and market dynamics ensures smooth operations.</p>
+                    </div>
+                </div>
+                
+                <div class="reason-item">
+                    <div class="reason-icon">⭐</div>
+                    <div class="reason-content">
+                        <h3>High Quality Products</h3>
+                        <p>Quality is never compromised at Peklane. We maintain rigorous quality control measures and work only with certified suppliers to guarantee that every product meets or exceeds international quality standards and specifications.</p>
+                    </div>
+                </div>
+                
+                <div class="reason-item">
+                    <div class="reason-icon">🚚</div>
+                    <div class="reason-content">
+                        <h3>We Deliver On Time</h3>
+                        <p>Punctuality is our promise. We understand that timely delivery is crucial for your business operations. Our efficient logistics network and proactive communication ensure your shipments arrive exactly when you need them.</p>
+                    </div>
+                </div>
+                
+                <div class="reason-item">
+                    <div class="reason-icon">💰</div>
+                    <div class="reason-content">
+                        <h3>Price Benefits</h3>
+                        <p>We leverage our global network and strong supplier relationships to negotiate competitive pricing without compromising quality. Our transparent pricing model and cost-effective solutions maximize your return on investment.</p>
+                    </div>
+                </div>
+                
+                <div class="reason-item">
+                    <div class="reason-icon">😊</div>
+                    <div class="reason-content">
+                        <h3>Complete Client Satisfaction</h3>
+                        <p>Your satisfaction is our ultimate goal. From initial inquiry to after-sales support, we provide dedicated customer service, transparent communication, and flexible solutions tailored to your specific requirements and expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Peklane</h3>
+                    <p>Your trusted partner in global import and export solutions. Connecting businesses worldwide with quality products and exceptional service.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Export Services</a></li>
+                        <li><a href="#services">Import Agent</a></li>
+                        <li><a href="#services">Sourcing Agent</a></li>
+                        <li><a href="#products">Product Catalog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📍 <strong>Address:</strong> Mumbai, India</li>
+                        <li>📧 <strong>Email:</strong> <a href="mailto:swapnil@peklane.com">swapnil@peklane.com</a></li>
+                        <li>📞 <strong>Phone:</strong> <a href="tel:+917498302413">+91-7498302413</a></li>
+                        <li>🕐 <strong>Hours:</strong> Mon-Fri 9AM-6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Peklane. All Rights Reserved. | Designed for Global Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menu = document.getElementById('navMenu');
+            
+            if (!nav.contains(event.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
